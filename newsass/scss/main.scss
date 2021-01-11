@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'functions';
 
 * {
   margin: 0;
@@ -7,14 +8,14 @@
 
 body {
   background: $light-color;
-  color: $dark-color;
+  color: set-text-color($light-color);
   font-family: $font-stack;
   line-height: 1.5;
 }
 
 header {
   background: $dark-color;
-  color: $light-color;
+  color: set-text-color($dark-color);
   padding: 1rem;
 
   h1 {
@@ -31,12 +32,12 @@ header {
 
   &-a {
     background: $primary-color;
-    color: #fff;
+    color: set-text-color($primary-color);
   }
 
   &-b {
     background: $secondary-color;
-    color: #fff;
+    color: set-text-color($secondary-color);
   }
 }
 
@@ -53,12 +54,99 @@ header {
   &-light {
     @extend %btn-shared;
     background-color: $light-color;
-    color: #333;
+    color: set-text-color($light-color);
+
+    // &:hover {
+    //   @include transform(rotate(20deg))
+    // }
+    &:hover {
+      transform: rotate(20deg);
+      background-color: darken($color: blue, $amount: 20);
+
+    }
+
   }
   &-dark {
     @extend %btn-shared;
     background-color: $dark-color;
-    color: #fff;
-    
+    color: set-text-color($dark-color);
+
+    // &:hover {
+    //   @include transform(rotate(-20deg))
+    // }
+    &:hover {
+      transform: rotate(-20deg);
+      background-color: darken($color: blue, $amount: 20);
+    }
   }
+
 }
+
+// Mixin - it is also like making template but it gets argument
+
+@mixin box($width: 100px, $height: 100px) {
+  width: $width;
+  height: $height;
+  box-shadow: 0px 0px 5px black;
+}
+
+.smallBox {
+  @include box(100px, 100px);
+  background: red;
+}
+
+.bigBox {
+  @include box(200px, 200px);
+  background: blue;
+
+}
+
+// Function
+
+@function px($value) {
+  @return $value * 2 + px
+}
+
+.smallBox2 {
+  width: px(50);
+  height: px(50);
+  box-shadow: 0px 0px 5px black;
+  margin: 10px;
+  background: green;
+}
+
+.bigBox2 {
+  width: px(100);
+  height: px(100);
+  box-shadow: 0px 0px 5px black;
+  margin: 10px;
+  background: yellow;
+}
+
+
+
+// Placeholder -- it is like making template
+// %box {
+//   box-shadow: 0px 0px 5px black;
+//   margin: 10px;
+// }
+
+// .smallBox1 {
+//   @extend %box;
+//   width: 100px;
+//   height: 100px;
+//   background: yellow;
+
+// }
+
+// .bigBox1 {
+//   @extend %box;
+//   width: 300px;
+//   height: 300px;
+//   background: green;
+
+// }
+
+
+
+

@@ -4,13 +4,13 @@
 
 body {
   background: #f4f4f4;
-  color: #333;
+  color: #000;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5; }
 
 header {
   background: #333;
-  color: #f4f4f4;
+  color: #fff;
   padding: 1rem; }
   header h1 {
     text-align: center; }
@@ -24,7 +24,7 @@ header {
     color: #fff; }
   .section-b {
     background: skyblue;
-    color: #fff; }
+    color: #000; }
 
 .btn-light, .btn-dark {
   display: inline-block;
@@ -36,8 +36,40 @@ header {
 
 .btn-light {
   background-color: #f4f4f4;
-  color: #333; }
+  color: #000; }
+  .btn-light:hover {
+    transform: rotate(20deg);
+    background-color: #000099; }
 
 .btn-dark {
   background-color: #333;
   color: #fff; }
+  .btn-dark:hover {
+    transform: rotate(-20deg);
+    background-color: #000099; }
+
+.smallBox {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0px 0px 5px black;
+  background: red; }
+
+.bigBox {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 0px 5px black;
+  background: blue; }
+
+.smallBox2 {
+  width: 100px;
+  height: 100px;
+  box-shadow: 0px 0px 5px black;
+  margin: 10px;
+  background: green; }
+
+.bigBox2 {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 0px 5px black;
+  margin: 10px;
+  background: yellow; }
